@@ -1,0 +1,16 @@
+{
+	"id": "1234",
+	"title": "whatever page",
+	"fce": [{
+		"id": "fce-1",
+		"title": "fce with two columns",
+    "template": "fce-two-col.html",
+    "active": true,
+    "content": {
+      "col": [
+        "col one",
+        "col two"
+      ]
+		}
+	}]
+}

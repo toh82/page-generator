@@ -1,0 +1,25 @@
+{
+  "name": "cms",
+  "version": "1.0.0",
+  "description": "flexible page creator which works with handlebarsjs and json",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toh82/page_generator.git"
+  },
+  "keywords": [
+    "cms",
+    "handlebars",
+    "website",
+    "content"
+  ],
+  "author": "Tobias Hartmann <hartmann.tobias@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/toh82/page_generator/issues"
+  },
+  "homepage": "https://github.com/toh82/page_generator#readme",
+  "dependencies": {
+    "handlebars": "^4.0.5",
+    "jquery": "^2.2.0"
+  }
+}
