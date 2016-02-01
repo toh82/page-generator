@@ -1,0 +1,13 @@
+{
+	"id": "fce-1",
+	"title": "fce with two columns",
+  "template": "fce-two-col.html",
+  "active": true,
+  "content": {
+		"headline": "foobar",
+    "col": [
+      "col one",
+      "col two"
+    ]
+	}
+}
