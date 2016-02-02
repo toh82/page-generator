@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
+    <title>Page Generator</title>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Page Generator</title>
 		<meta name="description" content="Overlay Page Generator for weak cms" />
 		<meta name="keywords" content="fullscreen, overlay, cms, page, content, generator" />
 		<link rel="shortcut icon" href="favicon.ico">
-		<script src="assets/js/modernizr.custom.js"></script>
+
+    <script src="assets/js/vendor/modernizr.custom.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/style1.css" />
 	</head>
+
 	<body>
-		<div class="container">
-			<header class="codrops-header">
-				<h1>Current Page</h1>
-				<p><button id="trigger-overlay" type="button">Add FCE</button></p>
-			</header>
-		</div>
+		<header class="codrops-header">
+			<h1>Current Page</h1>
+			<p><button id="trigger-overlay" type="button">Add FCE</button></p>
+		</header>
+
+    <div class="pc-page  js-page">
+      <div id="top-region"></div>
+      <div id="main-region"></div>
+      <div id="side-region"></div>
+    </div>
 
 		<!-- FCE section open/close -->
 		<div class="overlay  overlay-hugeinc">
-			<button type="button" class="overlay-close">Close</button>
-			<nav>
-				<ul>
-					<li><a class="js-fce" href="system/fce/two-column"><img src="system/fce/two-column/fce-img.svg" alt="FCE two columns" />FCE two columns</a></li>
-				</ul>
-			</nav>
+			<div class="pc-elements">
+				<div class="pc-elements__header">
+					<button type="button" class="overlay-close">Close</button>
+				</div>
+				<nav class="pc-elements__navigation  js-elements__navigation">
+
+				</nav>
+			</div>
 		</div>
 
-		<script src="assets/js/classie.js"></script>
-		<script src="assets/js/demo1.js"></script>
-		
-		<script data-main="system/app/main" src="system/app/lib/require.js"></script>
+		<script src="assets/js/vendor/classie.js"></script>
+		<script src="assets/js/vendor/demo1.js"></script>
+
+		<script data-main="assets/js/main" src="assets/js/vendor/require.js"></script>
 	</body>
 </html>
