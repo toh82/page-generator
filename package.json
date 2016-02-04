@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/toh82/page_generator.git"
   },
+  "scripts": {
+    "postinstall": "node scripts/setup.js"
+  },
   "keywords": [
     "cms",
     "handlebars",
@@ -20,6 +23,7 @@
   "homepage": "https://github.com/toh82/page_generator#readme",
   "dependencies": {
     "backbone.marionette": "^2.4.4",
+    "copyfiles": "^0.2.1",
     "gulp": "^3.9.0",
     "handlebars": "^4.0.5",
     "jquery": "^2.2.0",

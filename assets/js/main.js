@@ -3,12 +3,12 @@ requirejs.config({
     baseUrl: 'assets/js',
     locale: 'de',
     paths: {
-        'backbone':             'vendor/backbone',
-        'marionette':           'vendor/backbone.marionette',
-        'jquery':               'vendor/jquery',
-        'underscore':           'vendor/underscore',
+        'backbone':             'libs/backbone-min',
+        'marionette':           'libs/backbone.marionette',
+        'jquery':               'libs/jquery.min',
+        'underscore':           'libs/underscore-min',
         'text':                 'vendor/text',
-        'json2':                'vendor/json2'
+        'handlebars':           'libs/handlebars.amd.min'
     },
     shim: {
         'jquery': {
@@ -19,7 +19,7 @@ requirejs.config({
             exports:            '_'
         },
         'backbone': {
-            deps:               ['jquery', 'underscore', 'json2'],
+            deps:               ['jquery', 'underscore'],
             exports:            'Backbone'
         },
         'marionette': {
