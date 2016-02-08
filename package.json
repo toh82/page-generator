@@ -8,7 +8,14 @@
     "url": "git+https://github.com/toh82/page_generator.git"
   },
   "scripts": {
+    "test": "standard",
     "postinstall": "node scripts/setup.js"
+  },
+  "standard": {
+    "ignore": [
+      "assets/js/libs/**",
+      "assets/js/vendor/**"
+    ]
   },
   "keywords": [
     "cms",
@@ -27,6 +34,7 @@
     "gulp": "^3.9.0",
     "handlebars": "^4.0.5",
     "jquery": "^2.2.0",
-    "requirejs": "^2.1.22"
+    "requirejs": "^2.1.22",
+    "standard": "^6.0.3"
   }
 }

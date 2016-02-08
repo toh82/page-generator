@@ -1,48 +1,29 @@
 define([
-    'app',
-    'apps/elements/show/show_controller',
-    'apps/elements/list/list_controller'
-], function(pageCreatorApp) {
+  'app',
+  'text!apps/elements/template/layout.html'
+], function (pageCreatorApp, layoutTemplate) {
 
-    // MODULE DEFINITION  ------------------------------------------------------
-    pageCreatorApp.module("ElementsApp", function(ElementsApp, pageCreatorApp, Backbone, Marionette, $, _) {
-            
-        // ROUTER --------------------------------------------------------------
-        ElementsApp.Router = Marionette.AppRouter.extend({
-            appRoutes: {
-                "example": "action",
-                "otherExample": "action2"
-            }
-        });
+  pageCreatorApp.module("ElementsApp", function (ElementsApp, pageCreatorApp, Backbone, Marionette, $, _) {
+    this.startWithParent = false
 
-        // API -----------------------------------------------------------------
-        var API = {
-            action: function() {
-                pageCreatorApp.ElementsApp.Show.Controller.action();
-            },
-            action2: function() {
-                pageCreatorApp.ElementsApp.Show.Controller.action2();
-            }
-        };
+    var moduleName = 'content-elements'
 
-        // EVENTS --------------------------------------------------------------
-        var self = ElementsApp;
+    var ElementsLayoutView = Marionette.LayoutView.extend({
+      template: _.template(layoutTemplate),
+      regions: {
+        navigation: '.js-' + moduleName + '__navigation'
+      }
+    })
 
-        self.listenTo(ElementsApp, "example:action", function() {
-            API.action();
-        });
+    ElementsApp.on('before:start', function () {
+      ElementsApp.regions = new ElementsLayoutView
 
-        self.listenTo(ElementsApp, "example:otherAction", function() {
-            API.action2();
-        });
+      pageCreatorApp.debug(
+        'ElementsApp before:start',
+        ElementsApp
+      )
+    })
+  })
 
-        // INIT ----------------------------------------------------------------
-        pageCreatorApp.addInitializer(function() {
-            new ElementsApp.Router({
-                controller: API
-            });
-        });
-    });
-
-    return pageCreatorApp.ElementsApp;
-});
+  return pageCreatorApp.ElementsApp
+})

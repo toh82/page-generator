@@ -1,42 +1,92 @@
-
 define([
-    'marionette'
-], function(Marionette) {
+  'marionette',
+  'backbone',
+  'jquery'
+], function (Marionette, Backbone, $) {
 
-    var pageCreatorApp = new Marionette.Application()
+  var pageCreatorApp = new Marionette.Application({debug: true})
+  $.extend(pageCreatorApp, {
+    /**
+     * @param {string} message
+     * @param {object} data
+     */
+    debug: function (message, data) {
+      var isDebugEnabled = Marionette.getOption(pageCreatorApp, 'debug')
+      if (isDebugEnabled && window.console) {
+        console.log(message, data)
+      }
+    },
 
-    // REGIONS -----------------------------------------------------------------
-    pageCreatorApp.addRegions({
-        pageRegion:     '.js-page',
-        elementsRegion: '.js-elements__navigation'
-    })
+    /**
+     * @param {string} route
+     * @param {object} options
+     */
+    navigate: function (route, options) {
+      options || (options = {})
+      Backbone.history.navigate(route, options)
+    },
 
-    // NAVIGATION --------------------------------------------------------------
-    pageCreatorApp.navigate = function(route, options) {
-        options || (options = {})
-        Backbone.history.navigate(route, options)
-    };
+    /**
+     * @returns {string}
+     */
+    getCurrentRoute: function () {
+      if (Backbone.history.fragment === undefined) {
+        return ''
+      }
 
-    pageCreatorApp.getCurrentRoute = function() {
-        if (Backbone.history.fragment === undefined) return ''
-        return Backbone.history.fragment
-    };
+      return Backbone.history.fragment
+    }
+  })
 
-    // EVENTS ------------------------------------------------------------------
-    pageCreatorApp.listenTo(pageCreatorApp, "action:execute", function(action, params) {
-        // execute your code here for app wide events received for action "action:execute"
-    })
+  // Add Layout to Application
+  var AppLayoutView = Marionette.LayoutView.extend({
+    el: 'body',
+    regions: {
+      pagePreview: '.js-page__preview',
+      elements: '.js-content-elements'
+    }
+  })
 
-    // INIT --------------------------------------------------------------------
-    pageCreatorApp.listenTo(pageCreatorApp, "start", function() {
-        if (Backbone.history) {
-            Backbone.history.start()
+  // Router and Api
+  // TODO: instead of router may use even triggers to start sub apps
+  pageCreatorApp.Router = Marionette.AppRouter.extend({
+    appRoutes: {
+      'elements/': 'startElementsApp'
+    }
+  })
 
-            if (this.getCurrentRoute() === "") {
-                // call default action here for when the url is empty of options
-            }
-        }
-    })
+  var PageCreatorAppController = {
+    startElementsApp: function() {
 
-    return pageCreatorApp
+      pageCreatorApp.debug(
+        'startElementsApp'
+      )
+    }
+  }
+
+  // Initialization
+  pageCreatorApp.on('before:start', function () {
+    pageCreatorApp.regions = new AppLayoutView
+  })
+
+  pageCreatorApp.listenTo(pageCreatorApp, "start", function () {
+    if (Backbone.history) {
+      Backbone.history.start()
+
+      new pageCreatorApp.Router({controller: PageCreatorAppController})
+
+      var currentRoute = this.getCurrentRoute()
+      // TODO: trigger route when page is opened with a defined route
+      //if (currentRoute !== '') {
+      //  this.navigate(currentRoute)
+      //}
+
+      this.debug(
+        'app started',
+        {route: currentRoute}
+      )
+    }
+  })
+
+  return pageCreatorApp
 })
