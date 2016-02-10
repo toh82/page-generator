@@ -48,42 +48,41 @@ define([
   })
 
   // Router and Api
-  // TODO: instead of router may use even triggers to start sub apps
-  pageCreatorApp.Router = Marionette.AppRouter.extend({
+  var RouterOptions = {
     appRoutes: {
       'elements/': 'startElementsApp'
-    }
-  })
-
-  var PageCreatorAppController = {
-    startElementsApp: function() {
-
-      pageCreatorApp.debug(
-        'startElementsApp'
-      )
+    },
+    controller: {
+      startElementsApp: function() {
+        /**
+         * Wäre geil wenn die app files schon geladen wären
+         * und der router einer region nurnoch sagt start:[appname]
+         * wobei [appname] von der current route abgeleitet wird
+         * das module könnte sich dann selbst starten
+         */
+        require(['apps/elements/elements_app'], function () {
+          pageCreatorApp.module('ElementsApp').start()
+        })
+      }
     }
   }
 
   // Initialization
   pageCreatorApp.on('before:start', function () {
     pageCreatorApp.regions = new AppLayoutView
+    pageCreatorApp.router  = new Marionette.AppRouter(RouterOptions)
   })
 
   pageCreatorApp.listenTo(pageCreatorApp, "start", function () {
     if (Backbone.history) {
       Backbone.history.start()
 
-      new pageCreatorApp.Router({controller: PageCreatorAppController})
-
-      var currentRoute = this.getCurrentRoute()
-      // TODO: trigger route when page is opened with a defined route
-      //if (currentRoute !== '') {
-      //  this.navigate(currentRoute)
-      //}
-
       this.debug(
         'app started',
-        {route: currentRoute}
+        {
+          route: pageCreatorApp.getCurrentRoute(),
+          regions: pageCreatorApp.regions
+        }
       )
     }
   })

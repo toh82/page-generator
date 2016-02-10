@@ -1,7 +1,8 @@
 define([
+  'marionette',
   'app',
   'text!apps/elements/template/layout.html'
-], function (pageCreatorApp, layoutTemplate) {
+], function (Marionette, pageCreatorApp, layoutTemplate) {
 
   pageCreatorApp.module("ElementsApp", function (ElementsApp, pageCreatorApp, Backbone, Marionette, $, _) {
     this.startWithParent = false
@@ -16,12 +17,19 @@ define([
     })
 
     ElementsApp.on('before:start', function () {
-      ElementsApp.regions = new ElementsLayoutView
+      ElementsApp.regions = new ElementsLayoutView({
+        destroyImmediate: true
+      })
+    })
 
-      pageCreatorApp.debug(
-        'ElementsApp before:start',
-        ElementsApp
-      )
+    ElementsApp.on('start', function () {
+      pageCreatorApp.regions.getRegion('elements').show(ElementsApp.regions.render())
+
+      $('.js-close-content-elements').one('click', function () {
+        ElementsApp.regions.destroy()
+        pageCreatorApp.navigate('')
+        ElementsApp.stop()
+      })
     })
   })
 
