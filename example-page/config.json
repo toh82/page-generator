@@ -4,10 +4,10 @@
 	"fce": [{
 		"id": "fce-1",
 		"title": "fce with two columns",
-	  "template": "fce-two-col.html",
+	  "template": "two-column",
 	  "active": true,
 	  "content": {
-			"headline": "foobar",
+			"title": "foobar",
 	    "col": [
 	      "col one",
 	      "col two"

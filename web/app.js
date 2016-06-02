@@ -1,25 +1,39 @@
 var express    = require('express');
 var app        = express();
 var Handlebars = require('handlebars');
+var fs         = require('fs');
+
+const fceStorePath = './content-elements';
+
+function loadFceTemplate (templateName) {
+  var fceTemplatePath = fceStorePath + '/' + templateName + '/' + templateName + '.html';
+  return fs.readFileSync(fceTemplatePath).toString();
+}
+
+function renderFceHtml (fceData, rawFceTemplateString) {
+  var template = Handlebars.compile(rawFceTemplateString);
+  return template(fceData);
+}
+
+function renderPageFce (res, pageFce) {
+  res.set('Content-Type', 'text/html');
+
+  pageFce.forEach(function (fceConfig) {
+    var fceTemplate = loadFceTemplate(fceConfig.template);
+    var fceHtml     = renderFceHtml(fceConfig, fceTemplate);
+
+    res.write(fceHtml);
+  });
+
+  res.end();
+}
 
 app.get('/', function (req, res) {
-  var source = "<p>Hello, my name is {{name}}. I am from {{hometown}}. I have " +
-               "{{kids.length}} kids:</p>" +
-               "<ul>{{#kids}}<li>{{name}} is {{age}}</li>{{/kids}}</ul>";
- var data = { "name": "Alan", "hometown": "Somewhere, TX",
-                            "kids": [{"name": "Jimmy", "age": "12"}, {"name": "Sally", "age": "4"}]};
+  var pageConfig = require('../example-page/config');
+  var pageFce    = pageConfig.fce;
 
-  var template = Handlebars.compile(source);
-  var result = template(data);
-
-  res.send(result);
+  renderPageFce(res, pageFce);
 });
-
-/**
-TODO:
-build entry point for parsing a given data structure
-like from the example in folder example-page
-*/
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
