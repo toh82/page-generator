@@ -10,10 +10,19 @@ Proper use case is for example Magento, which has a poor page engine. With Pageg
 
 Just type `npm start`
 
+## Compile es6 with babel
+
+- Enabling the babel watcher: `npm run watch`  
+- Create a build of the JavaScript files: `npm run build:js`
+
+## Compile scss stylesheet
+
+`npm run build:css`
+
 ## Coding styleguide
 
 The **javascript** code should follow npm standard, to check your code run `npm test`.  
 For SCSS follow [sass-guidelin.es](https://sass-guidelin.es/). 
 
 ## Status
-Current status: basic file setup (WIP).
+Current status: work in progress.
