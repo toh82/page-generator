@@ -15,4 +15,4 @@ ratings:
   - "**.js"
   - "**.jsx"
   - "**.module"
-exclude_paths: []
+exclude_paths: ["web/public/js/lib"]
