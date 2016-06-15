@@ -9,11 +9,18 @@
   },
   "scripts": {
     "start": "node web/app.js",
+    "start:dev": "node web/app.js && npm run watch",
     "test": "standard",
     "build": "npm run build:js && npm run build:css",
     "build:js": "babel web/public/src/js/app --out-dir web/public/js/app",
     "build:css": "node-sass --output-style compressed --source-map true web/public/src/scss/main.scss web/public/css/main.css",
     "watch": "babel web/public/src/js/app --watch --out-dir web/public/js/app"
+  },
+  "standard": {
+    "ignore": [
+      "/web/public/js/lib/",
+      "/web/public/js/app/"
+    ]
   },
   "keywords": [
     "cms",

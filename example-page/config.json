@@ -1,24 +1,26 @@
 {
-	"id": "1234",
-	"title": "whatever page",
-	"template": {
-		"type": "page",
-		"name": "base"		
-	},
-	"fce": [{
-		"id": "fce-1",
-		"title": "fce with two columns",
-	  "template": {
-				"type": "container",
-				"name": "two-column"
-		},
-	  "active": true,
-	  "content": {
-			"title": "foobar",
-	    "col": [
-	      "col one",
-	      "col two"
-	    ]
-		}
-	}]
+    "id": "1234",
+    "title": "whatever page",
+    "template": {
+        "type": "page",
+        "name": "base"
+    },
+    "fce": [
+        {
+            "id": "fce-1",
+            "title": "fce with two columns",
+            "template": {
+                "type": "container",
+                "name": "two-column"
+            },
+            "active": true,
+            "content": {
+                "title": "foobar",
+                "col": [
+                    "col one",
+                    "col two"
+                ]
+            }
+        }
+    ]
 }

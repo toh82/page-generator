@@ -2,7 +2,10 @@
     "id": "fce-1",
     "title": "fce with two columns",
     "image": "two-column.png",
-    "template": "two-column/fce-two-col.html",
+    "template": {
+        "type": "container",
+        "name": "two-column"
+    },
     "active": true,
     "content": {
         "title": "foobar",

@@ -1,3 +1,3 @@
 requirejs(['config'], function () {
-    requirejs(['app/app'])
+  requirejs(['app/app'])
 })
