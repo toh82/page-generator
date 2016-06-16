@@ -2,13 +2,17 @@
     "id": "fce-1",
     "title": "fce with two columns",
     "image": "two-column.png",
+    "editable": true,
     "template": {
         "type": "container",
         "name": "two-column"
     },
     "active": true,
     "content": {
-        "title": "foobar",
+        "title": {
+            "value": "foobar",
+            "type": "direct"
+        },
         "col": [
             "col one",
             "col two"
