@@ -14,7 +14,8 @@
     "build": "npm run build:js && npm run build:css",
     "build:js": "babel web/public/src/js/app --out-dir web/public/js/app",
     "build:css": "node-sass --output-style compressed --source-map true web/public/src/scss/main.scss web/public/css/main.css",
-    "watch": "babel web/public/src/js/app --watch --out-dir web/public/js/app"
+    "watch:js": "babel web/public/src/js/app --watch --out-dir web/public/js/app",
+    "watch:css": "node-sass --watch --output-style compressed --source-map true web/public/src/scss/main.scss web/public/css/main.css"
   },
   "standard": {
     "ignore": [
@@ -39,6 +40,13 @@
     "glob": "^7.0.3",
     "handlebars": "^4.0.5",
     "hbs": "^4.0.0",
+    "inuit-box-sizing": "^0.2.0",
+    "inuit-buttons": "^0.4.2",
+    "inuit-defaults": "^0.2.3",
+    "inuit-layout": "^0.2.2",
+    "inuit-normalize": "^3.0.3",
+    "inuit-page": "^0.2.1",
+    "inuit-responsive-settings": "^0.1.5",
     "jquery": "^2.2.4",
     "standard": "^6.0.3"
   },
