@@ -1,5 +1,5 @@
 requirejs.config({
-  baseUrl: 'js/app',
+  baseUrl: '/js/app',
   paths: {
     templates: '../views',
     jquery: '../lib/jquery-2.2.4.min',
