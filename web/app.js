@@ -3,6 +3,7 @@ var express = require('express')
 var app = express()
 
 app.use(express.static('./web/public'))
+app.use(express.static('./resources/templates'))
 app.set('view engine', 'html')
 app.set('views', './web/views')
 app.engine('html', require('hbs').__express)
