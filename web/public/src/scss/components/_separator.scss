@@ -1,0 +1,29 @@
+
+/**
+ * Separator
+ * Usage:
+ * - hr.[your separator-namespace]
+ *
+ * Designed to work with hr element only
+ */
+
+$separator-namespace:       separator !default;
+
+$separator-line-show:       true !default;
+$separator-line-size:       5px !default;
+$separator-line-color:      #000000 !default;
+
+$separator-spacing-top:     20px !default;
+$separator-spacing-bottom:  20px !default;
+
+.#{$separator-namespace} {
+    border: 0;
+    height: 0;
+    padding-top: $separator-line-size;
+    margin-top: $separator-spacing-top;
+    margin-bottom: $separator-spacing-bottom;
+
+    @if $separator-line-show == true {
+        border-bottom: $separator-line-size solid $separator-line-color;
+    }
+}

@@ -1,0 +1,23 @@
+
+/**
+ * Button
+ * Builds up on the Inuit button
+ *
+ * @see node_modules/inuit-buttons/_objects.buttons.scss
+ */
+
+$btn-outline__line-size:            5px !default;
+$btn-outline__line-color:           #000000 !default;
+$btn-outline__line-color--hover:    #ff0000 !default;
+
+.btn {
+    &--outline {
+        background: transparent;
+        border: $btn-outline__line-size solid $btn-outline__line-color;
+
+        &:hover {
+            background: inherit;
+            border-color: $btn-outline__line-color--hover;
+        }
+    }
+}

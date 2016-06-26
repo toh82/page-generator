@@ -1,0 +1,40 @@
+
+// Fonts
+// ---
+$font__headline:                    'Rajdhani', sans-serif;
+$font__headline-weight--regular:    500;
+$font__headline-weight--bold:       600;
+
+$font__copy:                        'Open Sans', sans-serif;
+$font__copy-weight--regular:        400;
+
+// Colors
+// ---
+$global__color--base:               #ffffff;
+
+// Brand
+$brand__color--base:                #000000;
+$brand__color--highlight:           #76b82a;
+
+// Text
+$text__color--base:                 #202020;
+$text__color--link:                 $brand__color--highlight;
+
+// Buttons
+$btn-outline__line-color--hover:    $brand__color--highlight;
+
+// Navigation
+$navigation-item__border-color--hover:  $brand__color--base;
+$navigation-item__border-color:         transparent;
+
+// Inuit Override
+// ---
+$inuit-base-text-color:             $text__color--base;
+$inuit-base-background-color:       $global__color--base;
+
+// Inuit Settings
+// ---
+$inuit-enable-btn--large:           true;
+$inuit-enable-btn--small:           true;
+
+$inuit-enable-layout--large:        true;

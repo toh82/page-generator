@@ -12,13 +12,15 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 // Routes
 // ---
+app.use('/api', require('./router/api'))
 app.get('/', function (req, res) {
   res.render('index')
 })
-
-app.use('/api', require('./router/api'))
 app.get('/editor', function (req, res) {
   res.render('editor')
+})
+app.get('/about', function (req, res) {
+  res.render('about')
 })
 
 app.listen(3000, function () {

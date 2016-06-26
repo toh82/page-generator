@@ -43,6 +43,7 @@
     "inuit-box-sizing": "^0.2.0",
     "inuit-buttons": "^0.4.2",
     "inuit-defaults": "^0.2.3",
+    "inuit-headings": "^0.3.1",
     "inuit-layout": "^0.2.2",
     "inuit-normalize": "^3.0.3",
     "inuit-page": "^0.2.1",

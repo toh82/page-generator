@@ -1,0 +1,24 @@
+
+body {
+    @include getFont();
+}
+
+b,
+strong {
+    font-weight: $font__copy-weight--regular;
+}
+
+a {
+    color: $brand__color--base;
+    text-decoration: dotted;
+
+    &:visited,
+    &:focus {
+        color: $brand__color--base;
+    }
+
+    &:active,
+    &:hover {
+        color: $brand__color--highlight;
+    }
+}
