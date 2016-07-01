@@ -5,20 +5,20 @@
  * @param {copy|headline} $type
  * @param {regular|bold} $weight
  */
-@mixin getFont ($font-type: copy, $font-weight: regular) {
-    @if $font-type == copy {
+@mixin getFont ($font-type: 'copy', $font-weight: 'regular') {
+    @if $font-type == 'copy' {
         font-family: $font__copy;
         font-weight: $font__copy-weight--regular;
     }
 
-    @if $font-type == headline {
+    @if $font-type == 'headline' {
         font-family: $font__headline;
 
-        @if $font-weight == regular {
+        @if $font-weight == 'regular' {
             font-weight: $font__headline-weight--regular;
         }
 
-        @if $font-weight == bold {
+        @if $font-weight == 'bold' {
             font-weight: $font__headline-weight--bold;
         }
     }

@@ -9,6 +9,7 @@ $navigation-item__spacing-inner--vertical:      10px;
 $navigation__spacing:                           25px;
 
 $navigation-logo__height:                       60px;
+$navigation-logo__color--hover:                 #ff0000 !default;
 
 .site-nav {
     position: absolute;
@@ -24,7 +25,7 @@ $navigation-logo__height:                       60px;
         float: left;
 
         &:hover .site-nav__logo {
-            fill: $brand__color--highlight;
+            fill: $navigation-item__border-color--hover;
         }
     }
 
@@ -38,7 +39,7 @@ $navigation-logo__height:                       60px;
     }
 
     &__link {
-        @include getFont($font-type: headline, $font-weight: bold);
+        @include getFont($font-type: 'headline', $font-weight: 'bold');
         text-decoration: none;
         border-bottom: $navigation-item__border-size solid $navigation-item__border-color;
         padding: $navigation-item__spacing-inner--horizontal $navigation-item__spacing-inner--vertical;
