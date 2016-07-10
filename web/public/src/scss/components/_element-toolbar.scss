@@ -1,0 +1,22 @@
+
+$element-toolbar-min-height:            25px;
+
+$element-toolbar__brand-element-size:   $element-toolbar-min-height;
+$element-toolbar__brand-element-border: 3px solid #000;
+
+.pg-element-toolbar {
+  min-height: $element-toolbar-min-height;
+  position: relative;
+
+  &:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: $element-toolbar__brand-element-size;
+    width: $element-toolbar__brand-element-size;
+    border-top: $element-toolbar__brand-element-border;
+    border-right: $element-toolbar__brand-element-border;
+  }
+}
