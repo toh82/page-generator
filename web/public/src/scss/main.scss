@@ -25,7 +25,7 @@
 @import '../../../../node_modules/inuit-buttons/objects.buttons';
 @import '../../../../node_modules/inuit-layout/objects.layout';
 
-// ???
+// widths
 @import '../../../../node_modules/inuit-widths/trumps.widths';
 @import '../../../../node_modules/inuit-responsive-widths/trumps.widths-responsive';
 
@@ -47,3 +47,5 @@
 @import 'components/navigation';
 @import 'components/footer';
 @import 'components/separator';
+@import 'components/wrapper';
+@import 'components/element-toolbar';

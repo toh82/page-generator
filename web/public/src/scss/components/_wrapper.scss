@@ -1,0 +1,34 @@
+
+$wrapper-spacing:           24px;
+
+/**
+ * The wrapper sizes are related to the breakpoint
+ * check node_modules/inuit-responsive-settings/_settings.responsive.scss
+ */
+$wrapper-sizes: (
+  100px, // palm
+  200px, // lap
+  300px, // lap-and-up
+  400px, // portable
+  500px, // desk
+  600px  // retina
+) !default;
+
+.wrapper {
+  margin: 0 auto;
+  padding-left: $wrapper-spacing;
+  padding-right: $wrapper-spacing;
+
+  @each $breakpoint in $breakpoints {
+
+    // Get the name of the breakpoint.
+    $alias: nth($breakpoint, 1);
+
+    // Get the index of the breakpoint.
+    $index: index($breakpoints, $breakpoint);
+
+    @include media-query($alias) {
+      max-width: nth($wrapper-sizes, $index);
+    }
+  }
+}
