@@ -8,7 +8,8 @@ app.set('view engine', 'html')
 app.set('views', './web/views')
 app.engine('html', require('hbs').__express)
 
-hbs.registerPartials(__dirname + '/views/partials');
+var partialsPath = [__dirname, '/views/partials']
+hbs.registerPartials(partialsPath.join(''))
 
 // Routes
 // ---

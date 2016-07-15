@@ -1,8 +1,8 @@
-var express = require('express');
+var express = require('express')
 var loadHtmlTemplateFile = require('../lib/loadHtmlTemplateFile')
 var getTemplateConfigs = require('../lib/getTemplateConfigs')
 
-var apiRouter = express.Router();
+var apiRouter = express.Router()
 
 const templateStorePath = './resources/templates'
 
