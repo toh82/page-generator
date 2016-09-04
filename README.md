@@ -1,6 +1,8 @@
 # Pagedesigner
 
 [![Code Climate](https://codeclimate.com/github/toh82/page-generator/badges/gpa.svg)](https://codeclimate.com/github/toh82/page-generator)
+[![Stories in Ready](https://badge.waffle.io/toh82/page-generator.svg?label=ready&title=Ready)](http://waffle.io/toh82/page-generator)
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 The Pagedesigner webapp should help to build easy storeable and nice looking pages.
 

@@ -1,8 +1,6 @@
-<div class="pg-element">
-  <h2>{{content.title.value}}</h2>
-  <div class="row">
-    {{#each content.col}}
-    <div class="col">{{this}}</div>
-    {{/each}}
-  </div>
+<h2 {{{data content.title}}}>{{content.title.value}}</h2>
+<div class="row">
+  {{#each content.col}}
+  <div class="col" {{{data this}}}>{{this.value}}</div>
+  {{/each}}
 </div>

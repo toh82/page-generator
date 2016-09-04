@@ -11,11 +11,26 @@
     "content": {
         "title": {
             "value": "foobar",
-            "type": "direct"
+            "data": {
+                "id": "title",
+                "type": "direct"
+            }
         },
         "col": [
-            "col one",
-            "col two"
+            {
+                "value": "foobar",
+                "data": {
+                    "id": "col.0",
+                    "type": "direct"
+                }
+            },
+            {
+                "value": "barfoo",
+                "data": {
+                    "id": "col.1",
+                    "type": "direct"
+                }
+            }
         ]
     }
 }
